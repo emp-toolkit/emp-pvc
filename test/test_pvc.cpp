@@ -238,10 +238,10 @@ void run_bob(runner_t runner, const std::string &tag)
     g_party = BOB;
     std::vector<NetIO *> iov;
     bool silent = true;
-    const char *addr = "127.0.0.1";
+    const char *SERVER_IP = "127.0.0.1";
     for (int i = 0; i < MAX_PVC_ITERATION; ++i)
-        iov.push_back(new NetIO(addr, PORT++, silent));
-    NetIO *aio = new NetIO(addr, PORT++, true);
+        iov.push_back(new NetIO(SERVER_IP, PORT++, silent));
+    NetIO *aio = new NetIO(SERVER_IP, PORT++, true);
     auto prt = std::make_shared<PVCEva<NetIO>>(iov, aio);
     NamedTimer timer(tag);
     timer.start();
