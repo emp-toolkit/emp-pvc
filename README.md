@@ -1,4 +1,8 @@
-# emp-pvc
+# emp-pv
+## Covert Security with Public Verifiability: Faster, Leaner, and Simpler
+More details of the protocol can be found in the [paper](https://eprint.iacr.org/2018/1108).
+
+<img src="https://raw.githubusercontent.com/emp-toolkit/emp-readme/master/art/logo-full.jpg" width=300px/>
 
 ## Installation
 
