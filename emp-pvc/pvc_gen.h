@@ -5,7 +5,7 @@
 #include "emp-pvc/hash_array.h"
 #include "emp-pvc/internal_gen.h"
 #include "emp-pvc/gc_commit_gen.h"
-#include "emp-pvc/free_gc_hash_io.h"
+#include "emp-pvc/gc_hash_io.h"
 #include "emp-pvc/ecdsa.h"
 
 #include <deque>

@@ -4,7 +4,7 @@
 #include <emp-tool/utils/hash.h>
 #include <cstring>
 namespace emp {
-class FreeGCHashIO : public IOChannel<FreeGCHashIO> {
+class GCHashIO : public IOChannel<GCHashIO> {
     char internal[Hash::DIGEST_SIZE];
     NetIO *io = nullptr;
 
@@ -17,7 +17,7 @@ class FreeGCHashIO : public IOChannel<FreeGCHashIO> {
           internal[i] ^= digest[i];
     }
 public:
-    explicit FreeGCHashIO(NetIO *io_ = nullptr) 
+    explicit GCHashIO(NetIO *io_ = nullptr) 
         : io(io_)
     { std::memset(internal, 0u, Hash::DIGEST_SIZE); }
 

@@ -38,8 +38,8 @@ private:
     const int num_io_;
     std::vector<IO *> io_;
     IO *aux_io_ = nullptr;
-    FreeGCHashIO *hash_gc_io_ = nullptr;
-    HalfGateEva<FreeGCHashIO> *hashed_gc_ = nullptr;
+    GCHashIO *hash_gc_io_ = nullptr;
+    HalfGateEva<GCHashIO> *hashed_gc_ = nullptr;
     std::vector<garbler_t *> gc_;
     std::vector<evaluator_t*> eva_;
     ver_key_t ver_key_;
@@ -147,8 +147,8 @@ public:
         setup_exec(j);
         state = State::GC;
         eva_[get_index(j)]->state = state;
-        hash_gc_io_ = new FreeGCHashIO(io_[get_index(j)]);
-        hashed_gc_ = new HalfGateEva<FreeGCHashIO>(hash_gc_io_);
+        hash_gc_io_ = new GCHashIO(io_[get_index(j)]);
+        hashed_gc_ = new HalfGateEva<GCHashIO>(hash_gc_io_);
         CircuitExecution::circ_exec = hashed_gc_;
     }
 

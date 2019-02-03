@@ -6,7 +6,7 @@
 #include "emp-pvc/gc_commit_gen.h"
 #include "emp-pvc/internal_eva.h"
 #include "emp-pvc/internal_gen.h"
-#include "emp-pvc/free_gc_hash_io.h"
+#include "emp-pvc/gc_hash_io.h"
 #include "emp-pvc/ecdsa.h"
 
 #include <emp-ot/np.h>
@@ -134,7 +134,7 @@ public:
                                 block seedA, 
                                 typename TPC<RT>::T const& circ) const
         {
-            using io_t = FreeGCHashIO;
+            using io_t = GCHashIO;
             using garbler_t = HalfGateGen<io_t>;
             using protocol_t = GCCommitGen;
 

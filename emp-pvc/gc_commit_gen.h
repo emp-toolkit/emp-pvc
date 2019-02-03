@@ -1,6 +1,6 @@
 #pragma once
 #include "emp-pvc/hash_array.h"
-#include "emp-pvc/free_gc_hash_io.h"
+#include "emp-pvc/gc_hash_io.h"
 
 #include <emp-tool/utils/com.h>
 #include <emp-tool/gc/halfgate_gen.h>
@@ -11,7 +11,7 @@
 namespace emp {
 class GCCommitGen : public ProtocolExecution {
 public:
-    using io_t = FreeGCHashIO;
+    using io_t = GCHashIO;
     using garbler_t = HalfGateGen<io_t>;
 
     PRG prg;
