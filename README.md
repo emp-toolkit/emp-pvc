@@ -1,4 +1,4 @@
-# emp-pv
+# emp-pvc
 ## Covert Security with Public Verifiability: Faster, Leaner, and Simpler
 More details of the protocol can be found in the [paper](https://eprint.iacr.org/2018/1108).
 
