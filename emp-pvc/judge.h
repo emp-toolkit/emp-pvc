@@ -13,6 +13,7 @@
 #include <emp-ot/mextension_kos.h>
 #include <emp-tool/utils/ThreadPool.h>
 
+#include <cstdlib>
 #include <memory>
 #include <vector>
 #include <thread>
@@ -169,9 +170,12 @@ public:
                             typename TPC<RT>::T const& circ) 
         {
             bytes_t sim_trans;
-            int port = std::abs(std::rand());
-            port = std::max(port, 8000);
-            port = std::min(port, 65535);
+            unsigned seed = std::chrono::system_clock::now().
+                            time_since_epoch().count();
+            std::mt19937 generator(seed);
+            std::uniform_int_distribution<int> distribution(45535,65535);
+            int port = distribution(generator);
+
             auto eva = [&]() {
                 NetIO *nio = new NetIO("127.0.0.1", port, true);
                 simulate_eva<NetIO, RT>(nio, seedB, circ);
