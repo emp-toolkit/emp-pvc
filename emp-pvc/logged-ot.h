@@ -20,7 +20,7 @@ public:
 	  bn_t q;
 	  PRG prg;
 	  IO* io;
-    eb_t tbl[RELIC_EB_TABLE_MAX];
+    eb_t tbl[RLC_EB_TABLE_MAX];
 
     explicit LoggedOTCO(IO *io_)
         : io(io_)
@@ -32,7 +32,7 @@ public:
         char *tmp = mio.buffer;
         mio.buffer = (char *) eb_curve_get_tab_data;
         mio.size = 15400 * 8;
-        mio.recv_eb(tbl, RELIC_EB_TABLE_MAX);
+        mio.recv_eb(tbl, RLC_EB_TABLE_MAX);
         eb_new(C);
         mio.buffer = tmp;
     }
