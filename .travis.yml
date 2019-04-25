@@ -39,3 +39,8 @@ before_install:
 
 script:
   - cmake -DCMAKE_BUILD_TYPE=Debug . && make 
+  - bin/test_pvc.cpp_exe aes alice & bin/test_pvc.cpp_exe aes bob
+  - bin/test_pvc.cpp_exe sha1 alice & bin/test_pvc.cpp_exe sha1 bob
+  - bin/test_pvc.cpp_exe mult alice & bin/test_pvc.cpp_exe mult bob
+  - bin/test_pvc.cpp_exe sort alice & bin/test_pvc.cpp_exe sort bob
+  - bin/test_pvc.cpp_exe ham alice & bin/test_pvc.cpp_exe ham bob
