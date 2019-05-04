@@ -68,8 +68,8 @@ Rt run_aes_circut(const void *al, const void *bb, int flag)
     Bit *a = new Bit[alice_len];
     Bit *b = new Bit[bob_len];
     bool ab[alice_len], ba[bob_len];
-    for (long i = 0; i < alice_len; ++i) ab[i] = true;
-    for (long i = 0; i < bob_len; ++i) ba[i] = true;
+    for (long i = 0; i < alice_len; ++i) ab[i] = false;
+    for (long i = 0; i < bob_len; ++i) ba[i] = false;
     init(a, ab, alice_len, ALICE); // msg
     init(b, ba, bob_len, BOB);
 
@@ -93,9 +93,9 @@ Rt run_sha1_circut(const void *, const void *, int flag)
     long alice_len = std::max(512L, ALICE_LEN);
     long bob_len = std::max(512L, BOB_LEN);
     bool alice_bits[alice_len];
-    std::memset(alice_bits, false, alice_len);
+    std::memset(alice_bits, true, alice_len); // all 1
     bool bob_bits[bob_len];
-    std::memset(bob_bits, true, bob_len);
+    std::memset(bob_bits, true, bob_len); // all 1
 
     Bit *alice = new Bit[alice_len];
     Bit *bob = new Bit[bob_len];
@@ -107,7 +107,7 @@ Rt run_sha1_circut(const void *, const void *, int flag)
     if (flag & TPCF_OT_ONLY)
         return "";
     for (int i = 0; i < 512; ++i)
-        alice[i] = alice[i] ^ bob[i];
+        alice[i] = alice[i] ^ bob[i]; // all 0 input
     if (flag & TPCF_REAL_GC) {
         sha1_cf.compute((block *)c.bits, (block *)alice, nullptr);
     } else { // simulate gc, it might be threading, so we copy the gc file.
@@ -128,7 +128,7 @@ Rt run_sha256_circut(const void *, const void *, int flag)
     bool alice_bits[alice_len];
     std::memset(alice_bits, false, alice_len);
     bool bob_bits[bob_len];
-    std::memset(bob_bits, true, bob_len);
+    std::memset(bob_bits, false, bob_len);
 
     Bit *alice = new Bit[alice_len];
     Bit *bob = new Bit[bob_len];
@@ -161,7 +161,7 @@ Rt run_sha256_circut(const void *, const void *, int flag)
 }
 
 Rt run_sort(const void *, const void *, int flag) {
-    long n = std::max(std::max(4096L, ALICE_LEN), BOB_LEN);
+    long n = std::max(std::max(2048L, ALICE_LEN), BOB_LEN);
     long N = n * 32;
     Bit *a = new Bit[N];
     Bit *b = new Bit[N];
@@ -228,10 +228,10 @@ void run_bob(runner_t runner, const std::string &tag)
 {
     const char *bob_input = "this-is-bob-input-it-might-be-dummy";
     std::map<std::string, std::string> ground_th{
-        {"aes", "3f5b8cc9ea855a0afa7347d23e8d664e"},
-        {"sha1", "92b404e556588ced6c1acd4ebf053f6809f73a93"},
-        {"sha256", "da5698be17b9b46962335799779fbeca8ce5d491c0d26243bafef9ea1837a9d8"},
-        {"add", "c"} };
+        {"aes", "66e94bd4ef8a2c3b884cfa59ca342b2e"}, // 0s key and 0s input
+        {"sha1", "92b404e556588ced6c1acd4ebf053f6809f73a93"}, // sha1(0s)
+        {"sha256", "da5698be17b9b46962335799779fbeca8ce5d491c0d26243bafef9ea1837a9d8"}, // sha256(0s)
+        };
 #ifndef NDEBUG
     std::cout << "gnd = " << hex_to_binary(ground_th[tag]) << "\n";
 #endif

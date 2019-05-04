@@ -1,4 +1,5 @@
-# emp-pvc
+# emp-pvc [![Build Status](https://travis-ci.org/emp-toolkit/emp-pvc.svg?branch=master)](https://travis-ci.org/emp-toolkit/emp-pvc)
+
 ## Covert Security with Public Verifiability: Simpler, Faster, and Leaner
 More details of the protocol can be found in the [paper](https://eprint.iacr.org/2018/1108).
 
