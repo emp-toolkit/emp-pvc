@@ -1,2 +1,6 @@
 set(SRCS ecdsa.cpp)
+if (APPLE)
+add_library(emp-pvc STATIC ${SRCS})
+else(APPLE)
 add_library(emp-pvc SHARED ${SRCS})
+endif(APPLE)

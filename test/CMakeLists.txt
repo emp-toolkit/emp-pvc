@@ -1,5 +1,5 @@
 file(GLOB FILES RELATIVE "${CMAKE_SOURCE_DIR}/test" "test_*.cpp")
-set(RUNLIB ${EMP-TOOL_LIBRARIES} emp-pvc ${RELIC_LIBRARIES} gmp ssl crypto)
+set(RUNLIB ${EMP-TOOL_LIBRARIES} ${RELIC_LIBRARIES} emp-pvc)
 
 foreach(TEST_FILE ${FILES})
     add_executable(${TEST_FILE}_exe ${TEST_FILE})

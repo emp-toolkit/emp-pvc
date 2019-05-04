@@ -1,10 +1,11 @@
 cmake_minimum_required(VERSION 3.1)
+set(CMAKE_CXX_STANDARD 11)
 project(emp-pvc)
 
 if(NOT CMAKE_BUILD_TYPE)
 set(CMAKE_BUILD_TYPE Release)
 endif(NOT CMAKE_BUILD_TYPE)
-set(CMAKE_C_FLAGS "-pthread -Wall -march=native -O2 -maes -mrdseed")
+set(CMAKE_C_FLAGS "-pthread -PIC -Wall -march=native -O2 -maes -mrdseed")
 set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS}")
 set(CMAKE_CXX_STANDARD 11)
 find_path(CMAKE_FOLDER NAMES cmake/emp-tool-config.cmake)
