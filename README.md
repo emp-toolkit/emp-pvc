@@ -11,7 +11,7 @@ More details of the protocol can be found in the [paper](https://eprint.iacr.org
 2. Install [emp-tool](https://github.com/emp-toolkit/emp-tool).
 3. Install [emp-ot](https://github.com/emp-toolkit/emp-ot).
 4. git clone https://github.com/emp-toolkit/emp-pvc.git
-5. cd emp-pvc && cmake . && sudo make install
+5. cd emp-pvc && cmake . && make
 
 ## Test
 
