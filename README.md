@@ -7,7 +7,7 @@ More details of the protocol can be found in the [paper](https://eprint.iacr.org
 
 ## Installation
 
-1. Install prerequisites using instructions [here](https://github.com/emp-toolkit/emp-readme).
+1. Install prerequisites using instructions [here](https://github.com/emp-toolkit/emp-readme#detailed-installation).
 2. Install relic using script [here](https://github.com/emp-toolkit/emp-readme/blob/master/scripts/install_relic.sh)
 3. Install [emp-tool](https://github.com/emp-toolkit/emp-tool) at commit `50c01ba99e5d257de05ef0e74ce6a0294a9ff471`. When cmake, use `cmake -DTHREADING=on .`
 3. Install [emp-ot](https://github.com/emp-toolkit/emp-ot) at `15fb731e528974bcfe5aa09c18bb16376e949283`.
