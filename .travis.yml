@@ -38,7 +38,7 @@ before_install:
   - git clone https://github.com/emp-toolkit/emp-ot.git
   - cd emp-ot
   - git checkout 15fb731e528974bcfe5aa09c18bb16376e949283
-  - cmake
+  - cmake .
   - sudo make install
 
 script:
