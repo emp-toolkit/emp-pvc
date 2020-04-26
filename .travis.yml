@@ -40,6 +40,7 @@ before_install:
   - git checkout 15fb731e528974bcfe5aa09c18bb16376e949283
   - cmake .
   - sudo make install
+  - cd ..
 
 script:
   - cmake -DCMAKE_BUILD_TYPE=Debug . && make 
